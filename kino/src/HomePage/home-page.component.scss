@@ -1,0 +1,35 @@
+.movie-container {
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    align-items: center;
+  }
+  .text-button-container {
+    text-align: left;
+    color: #767e94;
+    line-height: 24px;
+  }
+  .text {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+  }
+  .quantity {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+  }
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .totalCount {
+    align-items: center;
+    justify-content: center;
+  }
+  
