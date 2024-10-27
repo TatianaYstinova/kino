@@ -1,11 +1,7 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { appReducer, AppState } from './app.reducer';
+import { RootStateWithAppState, appReducer } from './app.reducer';
 
-
-export interface RootState {
-  app: AppState;
-  // другие состояния...
-}
+export interface RootState extends RootStateWithAppState{}
 
 export const reducers: ActionReducerMap<RootState> = {
   app: appReducer,

@@ -7,17 +7,18 @@ import { catchError, Observable, throwError } from 'rxjs';
     providedIn: 'root',
 })
 export class MovieService {
+    constructor(private http: HttpClient) { };
 
-    constructor(private http: HttpClient) { }
+    private getApiUrl(id: number) {
+        return `http://localhost:777/movies?id=${id}`;
+    };
 
     getMovieById(id: number): Observable<IResponse<MovieDtoV13>> {
-        const apiUrl = `http://localhost:777/movies?id=${id}`;
-
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
 
-        return this.http.get<IResponse<MovieDtoV13>>(apiUrl, {
+        return this.http.get<IResponse<MovieDtoV13>>(this.getApiUrl(id), {
             headers
         }).pipe(
             catchError(err => {

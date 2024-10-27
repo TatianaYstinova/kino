@@ -22,3 +22,8 @@ export const appReducer = createReducer(
     isAuthorized,
   }))
 );
+
+export interface RootStateWithAppState {
+  app: AppState;
+}
+
