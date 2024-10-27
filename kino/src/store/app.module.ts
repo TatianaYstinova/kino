@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
+import { AppComponent } from '../app/app.component';
+import { HomePageComponent } from '../HomePage/home-page.component';
 
 @NgModule({
   declarations: [
-    //  компоненты
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
   ],
   providers: [],
-  bootstrap: [/*  корневой компонент */]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

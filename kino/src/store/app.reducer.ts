@@ -11,6 +11,7 @@ export const initialState: AppState = {
   isAuthorizing: false,
 };
 
+
 export const appReducer = createReducer(
   initialState,
   on(setIsAuthorizing, (state, { isAuthorizing }) => ({
@@ -23,7 +24,10 @@ export const appReducer = createReducer(
   }))
 );
 
+
+
 export interface RootStateWithAppState {
   app: AppState;
 }
+
 
