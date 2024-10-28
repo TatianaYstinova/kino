@@ -7,7 +7,7 @@
     <div>
 
       <div>
-        @for(let movie of movies){
+        @for( movie of movies;track movie.id){
 
         <div>
           [movieId]="movie.id"
@@ -21,8 +21,8 @@
       </div>
     </div>
 
-    @if(movies?.length  < moviesData?.totalCount){ <button (click)="handleShowMore()">
+    <!-- @if(movies.length  < moviesData.totalCount){ <button (click)="handleShowMore()">
       Показать еще
       </button>
-      }
+      } -->
   </div>
