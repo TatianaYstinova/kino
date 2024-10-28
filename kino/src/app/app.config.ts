@@ -7,7 +7,15 @@ import { provideHttpClient, withFetch } from '@angular/common/http'
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideStore } from '@ngrx/store';
+import { reducers } from "../store";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideAnimations(), provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(), NG_EVENT_PLUGINS, provideStore(),provideHttpClient(withFetch())]
+  providers: [
+    provideAnimations(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideClientHydration(),
+    NG_EVENT_PLUGINS,
+    provideStore(reducers),
+    provideHttpClient(withFetch())]
 };

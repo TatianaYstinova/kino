@@ -7,14 +7,13 @@
     <div>
 
       <div>
-        @for( movie of movies;track movie.id){
-
+        @for(movie of movies;track movie.id){
         <div>
-          [movieId]="movie.id"
-          [alternativeName]="movie.alternativeName || ''"
-          [name]="movie.name"
-          [grade]="movie.rating?.kp || 0"
-          [img]="movie.poster?.url">
+          {{movie.id}},
+          {{movie.alternativeName || ''}},
+          [name]={{movie.name}}
+          [grade]={{movie.rating?.kp || 0}}
+          [img]={{movie.poster?.url}}>
 
         </div>
         }

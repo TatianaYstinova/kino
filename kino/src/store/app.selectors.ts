@@ -4,8 +4,6 @@ import { HomePageState, RootStateWithHomePageState } from './home-page.reducers'
 
 export const selectAppState = (state: RootStateWithAppState) => state.app;
 
-
-
 export const selectIsAuthorized = createSelector(
   selectAppState,
   (state: AppState) => state.isAuthorized
