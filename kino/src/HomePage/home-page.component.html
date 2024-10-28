@@ -1,21 +1,28 @@
-
-  
-  <div>
-    <div class="totalCount">
-      <span>Все</span>
-      <span>({{ (moviesData$ | async)? .totalCount }})</span>
+@let movies = (movies$ | async);
+@let moviesData= (moviesData$ | async);
+<div>
+  <div class="totalCount">
+    <span>Все</span>
+    <span>({{ moviesData?.totalCount }})</span>
     <div>
-    
-    <div @for="let movie of (movies$ | async)">
+
       <div>
-            [movieId]="movie.id"
-            [alternativeName]="movie.alternativeName || ''"
-            [name]="movie.name"
-            [grade]="movie.rating?.kp || 0"
-            [img]="movie.poster?.url">
-        
+        @for(let movie of movies){
+
+        <div>
+          [movieId]="movie.id"
+          [alternativeName]="movie.alternativeName || ''"
+          [name]="movie.name"
+          [grade]="movie.rating?.kp || 0"
+          [img]="movie.poster?.url">
+
+        </div>
+        }
       </div>
     </div>
+
+    @if(movies?.length  < moviesData?.totalCount){ <button (click)="handleShowMore()">
+      Показать еще
+      </button>
+      }
   </div>
-  
-  <button @if="(movies$ | async)?.length < (moviesData$ | async)?.totalCount" mat-button (click)="handleShowMore()">Показать еще</button>

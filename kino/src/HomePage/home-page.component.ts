@@ -6,13 +6,13 @@ import { selectMovies, selectMoviesData, selectFilter } from '../store/home-page
 import { MovieDtoV13 } from '@openmoviedb/kinopoiskdev_client';
 import { addMovies, setFilter, setMovies, setMoviesData } from '../store/home-page.action'
 import { RootState } from '../store';
-import { CommonModule, NgFor } from '@angular/common';
+import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
-    // imports: [NgFor, CommonModule],
+    imports: [NgFor,AsyncPipe],
     standalone:true
 })
 
