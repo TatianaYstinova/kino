@@ -3,17 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { AppComponent } from '../app/app.component';
-import { HomePageComponent } from '../HomePage/home-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [HttpClientModule],
+  bootstrap: []
 })
 export class AppModule {}
