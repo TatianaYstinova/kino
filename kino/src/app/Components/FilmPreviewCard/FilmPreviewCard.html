@@ -1,0 +1,15 @@
+<mat-card class = "cardStyle">
+    <div class = "boxStyle">
+      <span style="color: #FFBD6D">{{ grade }}</span>
+      <!-- <app-movie-rating-editor [movieId]="movieId"></app-movie-rating-editor> -->
+    </div>
+    <img
+      mat-card-image
+      [src]="imageUrl"
+      alt="Image description"
+      class ="cardMediaStyle"
+    />
+    <mat-card-content class="cardContentStyle">
+      <p class ="typographyStyle">{{name?.toString() }}</p>
+    </mat-card-content>
+  </mat-card>

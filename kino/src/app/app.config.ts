@@ -8,6 +8,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideStore } from '@ngrx/store';
 import { reducers } from "../store";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,5 +18,5 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     NG_EVENT_PLUGINS,
     provideStore(reducers),
-    provideHttpClient(withFetch())]
+    provideHttpClient(withFetch()), provideAnimationsAsync()]
 };

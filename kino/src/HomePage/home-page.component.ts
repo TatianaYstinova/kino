@@ -7,12 +7,13 @@ import { MovieDtoV13 } from '@openmoviedb/kinopoiskdev_client';
 import { addMovies, setFilter, setMovies, setMoviesData } from '../store/home-page.action'
 import { RootState } from '../store';
 import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
+import { FilmPreviewCardComponent } from "../app/Components/FilmPreviewCard/FilmPreviewCard";
 
 @Component({
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
-    imports: [NgFor,AsyncPipe],
+    imports: [NgFor, AsyncPipe, FilmPreviewCardComponent],
     standalone:true
 })
 

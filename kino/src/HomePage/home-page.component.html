@@ -1,27 +1,34 @@
 @let movies = (movies$ | async);
 @let moviesData= (moviesData$ | async);
 <div>
+
   <div class="totalCount">
     <span>Все</span>
     <span>({{ moviesData?.totalCount }})</span>
-    <div>
-
-      <div>
-        @for(movie of movies;track movie.id){
+    @for(movie of movies;track movie.id){
+      <app-film-preview-card
+      [movieId]="movie.id"
+      [alternativeName]="movie.alternativeName"
+      >
         <div>
-          {{movie.id}},
-          {{movie.alternativeName || ''}},
-          [name]={{movie.name}}
-          [grade]={{movie.rating?.kp || 0}}
-          [img]={{movie.poster?.url}}>
+          @for(movie of movies;track movie.id){
+          <div>
+            <div>{{movie.name}}</div>
+            <div>{{movie.rating?.kp || 0}}</div>
+            <img src="{{movie.poster?.url}}" />>
 
+          </div>
+          }
         </div>
-        }
-      </div>
-    </div>
+
+      </app-film-preview-card>
+
+    }
+
+    
 
     <!-- @if(movies.length  < moviesData.totalCount){ <button (click)="handleShowMore()">
       Показать еще
       </button>
       } -->
-  </div>
+    <!-- </div> -->
