@@ -8,7 +8,8 @@
     @for(movie of movies;track movie.id){
       <app-film-preview-card
       [movieId]="movie.id"
-      [alternativeName]="movie.alternativeName"
+      [name]="movie.name"
+      [img]="movie.poster?.url"
       >
         <div>
           @for(movie of movies;track movie.id){
