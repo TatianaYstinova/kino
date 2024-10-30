@@ -6,7 +6,7 @@ import { selectMovies, selectMoviesData, selectFilter } from '../store/home-page
 import { MovieDtoV13 } from '@openmoviedb/kinopoiskdev_client';
 import { addMovies, setFilter, setMovies, setMoviesData } from '../store/home-page.action'
 import { RootState } from '../store';
-import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
+import { AsyncPipe, NgFor } from '@angular/common';
 import { FilmPreviewCardComponent } from "../app/Components/FilmPreviewCard/FilmPreviewCard";
 import {MatGridListModule} from '@angular/material/grid-list';
 
@@ -45,7 +45,7 @@ export class HomePageComponent implements OnInit {
 
                 this.store.dispatch(setMoviesData(newMoviesData));
 
-                if (filter.page === 1) {
+                if (filter?.page === 1) {
                     this.store.dispatch(setMovies({ movies: response.data.docs }));
                 } else {
                     this.store.dispatch(addMovies({ movies: response.data.docs }));
@@ -59,8 +59,8 @@ export class HomePageComponent implements OnInit {
     handleShowMore() {
         this.filter$.subscribe(filter => {
             const newFilter = {
-                ...filter,
-                page: Number(filter.page) + 1,
+                 ...filter,
+                page: Number(filter?.pages) + 1,
             };
             this.store.dispatch(setFilter(newFilter));
         });
