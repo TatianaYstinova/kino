@@ -8,12 +8,13 @@ import { addMovies, setFilter, setMovies, setMoviesData } from '../store/home-pa
 import { RootState } from '../store';
 import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
 import { FilmPreviewCardComponent } from "../app/Components/FilmPreviewCard/FilmPreviewCard";
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
-    imports: [NgFor, AsyncPipe, FilmPreviewCardComponent],
+    imports: [NgFor, AsyncPipe, FilmPreviewCardComponent, MatGridListModule],
     standalone:true
 })
 

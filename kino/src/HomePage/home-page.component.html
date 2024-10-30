@@ -1,35 +1,31 @@
 @let movies = (movies$ | async);
 @let moviesData= (moviesData$ | async);
-<div>
 
+<div>
   <div class="totalCount">
     <span>Все</span>
     <span>({{ moviesData?.totalCount }})</span>
-    @for(movie of movies;track movie.id){
-      <app-film-preview-card
-      [movieId]="movie.id"
-      [name]="movie.name"
-      [img]="movie.poster?.url"
-      >
-        <div>
-          @for(movie of movies;track movie.id){
+    <mat-grid-list class="container" cols="3" rowHeight="1:1">
+      @for(movie of movies;track movie.id){
+          <mat-grid-tile>
+        <app-film-preview-card [movieId]="movie.id" [name]="movie.name" [img]="movie.poster?.url">
           <div>
-            <div>{{movie.name}}</div>
-            <div>{{movie.rating?.kp || 0}}</div>
-            <img src="{{movie.poster?.url}}" />>
-
+            @for(movie of movies;track movie.id){
+            <div>
+              <div>{{movie.name}}</div>
+              <div>{{movie.rating?.kp || 0}}</div>
+              <img src="{{movie.poster?.url}}" />>
+            </div>
+            }
           </div>
-          }
-        </div>
-
-      </app-film-preview-card>
-
-    }
-
-    
-
-    <!-- @if(movies.length  < moviesData.totalCount){ <button (click)="handleShowMore()">
+        </app-film-preview-card>
+      </mat-grid-tile>
+      }
+    </mat-grid-list>
+    @if( movies && moviesData && movies.length < moviesData.totalCount){ 
+      <button (click)="handleShowMore()">
       Показать еще
       </button>
-      } -->
-    <!-- </div> -->
+      } 
+    </div>
+</div>

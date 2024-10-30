@@ -27,9 +27,13 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    flex-wrap: wrap;
   }
   .totalCount {
     align-items: center;
     justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
   
