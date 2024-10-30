@@ -45,7 +45,7 @@ export class HomePageComponent implements OnInit {
 
                 this.store.dispatch(setMoviesData(newMoviesData));
 
-                if (filter?.page === 1) {
+                if (newMoviesData.pages === 1) {
                     this.store.dispatch(setMovies({ movies: response.data.docs }));
                 } else {
                     this.store.dispatch(addMovies({ movies: response.data.docs }));
@@ -60,7 +60,7 @@ export class HomePageComponent implements OnInit {
         this.filter$.subscribe(filter => {
             const newFilter = {
                  ...filter,
-                page: Number(filter?.pages) + 1,
+                page: Number(filter) + 1,
             };
             this.store.dispatch(setFilter(newFilter));
         });
