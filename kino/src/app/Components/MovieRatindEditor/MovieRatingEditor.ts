@@ -1,26 +1,32 @@
-import { Component, Input } from "@angular/core";
+import { Component, inject, Input } from "@angular/core";
 import { USER_ID_KEY } from "../../../entities/user";
 import { jwtDecode } from "jwt-decode";
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import {
+    MatBottomSheet,
+    MatBottomSheetModule,
+    MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
 
 @Component({
     selector: 'app-movie-rating-editor',
     templateUrl: './MovieRatingEditor.html',
     styleUrls: ['./MovieRatingEditor.scss'],
     standalone: true,
-    imports: []
+    imports: [MatButtonModule, MatBottomSheetModule]
 })
 export class MovieRatingEditor {
     @Input() movieId: number | undefined;
+    private _bottomSheet = inject(MatBottomSheet);
 
-    ngOnInit(){
-        const token = localStorage.getItem("accessToken");
-        if(token){
-            const decoded = jwtDecode<any>(token);
-    
-        }
-
+    openBottomSheet(): void {
+        this._bottomSheet.open(MovieRatingEditor);
     }
 }
+
+
+
 
 
 

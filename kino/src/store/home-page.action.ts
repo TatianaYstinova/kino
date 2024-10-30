@@ -18,5 +18,5 @@ export const setMoviesData = createAction(
   
   export const setFilter = createAction(
     '[HomePage] Set Filter',
-    props<{ filter: any , pages:number }>()
+    props<{ filter: any }>()
   );
