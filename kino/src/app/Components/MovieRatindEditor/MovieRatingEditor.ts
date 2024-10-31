@@ -8,21 +8,18 @@ import {
     MatBottomSheetModule,
     MatBottomSheetRef,
 } from '@angular/material/bottom-sheet';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 @Component({
     selector: 'app-movie-rating-editor',
     templateUrl: './MovieRatingEditor.html',
     styleUrls: ['./MovieRatingEditor.scss'],
     standalone: true,
-    imports: [MatButtonModule, MatBottomSheetModule]
+    imports: [MatButtonModule, MatBottomSheetModule,PopoverModule]
 })
 export class MovieRatingEditor {
     @Input() movieId: number | undefined;
-    private _bottomSheet = inject(MatBottomSheet);
-
-    openBottomSheet(): void {
-        this._bottomSheet.open(MovieRatingEditor);
-    }
+    
 }
 
 
