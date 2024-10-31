@@ -5,7 +5,7 @@ import { reducers } from './store';
 import { AppComponent } from '../app/app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { routes } from '../app/app.routes';
+// import { routes } from '../app/app.routes';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { routes } from '../app/app.routes';
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     
   ],
   providers: [],
