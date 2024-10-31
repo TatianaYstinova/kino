@@ -1,6 +1,6 @@
 import { Component, inject, Input } from "@angular/core";
 import { USER_ID_KEY } from "../../../entities/user";
-import { jwtDecode } from "jwt-decode";
+
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import {

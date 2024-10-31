@@ -1,0 +1,27 @@
+.header-container {
+    position: relative;
+    padding: 16px 120px;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    text-decoration: none;
+  }
+  
+  .menu-navigation {
+    display: flex;
+    gap: 49px;
+    justify-content: end;
+    position: relative;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .custom-link :hover {
+    background: rgba(156, 146, 248, 1);
+  }
+  
+  .logo{
+    background-image: url('./logo.png');
+  }

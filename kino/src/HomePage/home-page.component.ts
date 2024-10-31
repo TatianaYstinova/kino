@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { distinctUntilChanged, Observable, of, switchMap } from 'rxjs';
 import { MovieService } from '../entities/movie/api/get-by-filters';
 import { selectMovies, selectMoviesData, selectFilter } from '../store/home-page.selectors';
 import { MovieDtoV13 } from '@openmoviedb/kinopoiskdev_client';
@@ -30,9 +30,13 @@ export class HomePageComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.filter$.subscribe(filter => {
-            this.getMoviesByFilterHandler(filter);
-        });
+        this.filter$.pipe(
+            distinctUntilChanged(), // чтобы избежать лишних вызовов
+            switchMap(filter => {
+                this.getMoviesByFilterHandler(filter);
+                return of(filter); // возвращаем filter для дальнейшей обработки
+            })
+        ).subscribe();
     }
 
     private getMoviesByFilterHandler(filter: any) {
@@ -45,7 +49,7 @@ export class HomePageComponent implements OnInit {
 
                 this.store.dispatch(setMoviesData(newMoviesData));
 
-                if (newMoviesData.pages === 1) {
+                if (filter.pages === 1) {
                     this.store.dispatch(setMovies({ movies: response.data.docs }));
                 } else {
                     this.store.dispatch(addMovies({ movies: response.data.docs }));
@@ -60,9 +64,10 @@ export class HomePageComponent implements OnInit {
         this.filter$.subscribe(filter => {
             const newFilter = {
                  ...filter,
-                page: Number(filter) + 1,
+                page: filter.page + 1,
             };
             this.store.dispatch(setFilter(newFilter));
+            this.getMoviesByFilterHandler(newFilter);
         });
     }
 }

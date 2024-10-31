@@ -4,17 +4,19 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store';
 import { AppComponent } from '../app/app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { routes } from '../app/app.routes';
 
 @NgModule({
   declarations: [
-    
   ],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
-    HttpClientModule,
+    RouterModule.forRoot(routes),
+    
   ],
-  providers: [HttpClientModule],
+  providers: [],
   bootstrap: []
 })
 export class AppModule {}
