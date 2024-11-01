@@ -1,0 +1,12 @@
+<div class="film-page-container" *ngIf="movie$ | async as movie">
+    <div class="img-container">
+      <img class="poster-header" [src]="movie?.data?.poster?.url || 'Нет постера'" alt="poster">
+    </div>
+    <div class="film-title">{{ movie?.data?.name }}</div>
+    
+    <button class="film-button" (click)="toggleFavorite(movie.data.id)">
+      Добавить / Удалить из избранного
+    </button>
+  
+    <div *ngIf="alertMessage">{{ alertMessage }}</div>
+  </div>

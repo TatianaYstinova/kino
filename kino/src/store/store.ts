@@ -9,5 +9,6 @@ export interface RootState extends
 export const reducers: ActionReducerMap<RootState> = {
   app: appReducer,
   homePage: homePageReducer,
+  filmPage:filmPageReducer,
   // другие редьюсеры...
 };

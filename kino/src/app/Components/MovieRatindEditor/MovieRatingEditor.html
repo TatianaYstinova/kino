@@ -1,6 +1,25 @@
-<button type="button" class="btn btn-default btn-secondary"
-        [popover]="'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'"
-        popoverTitle="Popover on right"
-        placement="right">
-  Popover on right
+<button class="btn btn-outline-primary">
+    <span *ngIf="ratingValue !== null" ([ngClass])="getCircleColor()">
+        {{ ratingValue }}
+    </span>
+    <img src="assets/star.png" alt="star" />
 </button>
+
+<ng-template #ratingPopover>
+    <div class="popover-content">
+        <rating (ngModel)="ratingValue" (max)="maxValue"></rating>
+    </div>
+</ng-template>
+
+<ng-template #modalContent let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Вы не авторизованы</h4>
+        <button type="button" class="close pull-right" (click)="modal.dismiss('Cross click')">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p>Пожалуйста, войдите в свою учетную запись, чтобы оставить оценку.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('Close click')">Закрыть</button>
+    </div>
+</ng-template>

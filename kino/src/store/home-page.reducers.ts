@@ -11,7 +11,7 @@ export interface HomePageState {
 export const initialStateHomePage: HomePageState = {
     moviesData: null,
     movies: [],
-    filter: { page: 1 },
+    filter: { page: 1, limit:8 },
 };
 
 export const homePageReducer = createReducer(
